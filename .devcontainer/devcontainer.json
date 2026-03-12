@@ -1,0 +1,84 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/cpp
+{
+	"name": "C++",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/conda:1": {},
+		"ghcr.io/devcontainers/features/desktop-lite:1": {
+
+			"password": "vscode",
+			
+			"webPort": "6080",
+			
+			"vncPort": "5901"
+			
+					},
+		"ghcr.io/devcontainers/features/common-utils:2": {},
+		"ghcr.io/devcontainers/features/github-cli:1": {},
+		"ghcr.io/devcontainers/features/sshd:1": {
+			"runArgs": [
+				"-d",
+				"-p",
+				"2222:22"
+			]
+		},
+		"ghcr.io/devcontainers/features/java:1": {
+			"variant": "11",
+			"installArgs": [
+				"maven",
+				"gradle"
+			]
+		}
+		
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-vscode.cpptools-extension-pack",
+				"ms-vscode.cpptools-themes",
+				"ms-vscode-remote.remote-wsl",
+				"GitHub.codespaces",
+				"ms-vscode-remote.remote-containers",
+				"ms-azuretools.vscode-docker",
+				"GitHub.copilot",
+				"GitHub.copilot-chat",
+				"GitHub.heygithub",
+				"eamodio.gitlens",
+				"DavidAnson.vscode-markdownlint",
+				"ms-vscode-remote.remote-ssh",
+				"ms-vscode-remote.remote-ssh-edit",
+				"ms-vscode.remote-explorer",
+				"github.vscode-github-actions"
+			]
+		}
+	},
+
+	// Features to add to the dev containerr. More info: https://containers.dev/features.
+	// "features": {},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	 "forwardPorts": [
+		22,
+		8080,
+		2222,
+		5901,
+		6080
+	 ],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	//"postCreateCommand": "g++ -g src/*.cpp -o main.exe -v",
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	// Uncomment to connect as root instead. Moree info: https://aka.ms/dev-containers-non-root.
+	"remoteUser": "root",
+	"portsAttributes": {
+		"6080": {
+			"label": "ekran"
+		}
+	}
+}
